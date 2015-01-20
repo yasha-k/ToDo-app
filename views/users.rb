@@ -5,6 +5,10 @@ module ToDoApp
         include ToDoApp::View
 
       end
+      class Signin
+        include ToDoApp::View
+
+      end
     end
   end
 end

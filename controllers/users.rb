@@ -19,6 +19,11 @@ module ToDoApp
 
           redirect_to "/"
         end
+      end
+
+      action "Signin" do
+        def call(params)
+        end
 
       end
       #CRUD

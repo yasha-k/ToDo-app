@@ -9,6 +9,8 @@ module ToDoApp
         post '/tasks/delete', to: 'home#delete'
         post '/users/create', to: 'users#create'
         get '/users/new', to: 'users#new'
+        get '/users/signin', to: 'users#signin'
+        post '/sessions/create', to: 'sessions#create'
 
         # Reihenfolge wichtig, da er von oben nach unten durchläuft
         get '/impressum', to: 'imprint#page'
