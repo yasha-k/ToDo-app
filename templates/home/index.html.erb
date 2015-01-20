@@ -1,0 +1,62 @@
+
+<h1>ToDoApp</h1>
+<p>
+Hier ist die erste Seite von der ToDoApp!
+</p>
+<form action="/tasks/create" method='POST'>
+ Deine Aufgabe: <input name="task" autofocus="true"/>
+ <!--Damit das Eingabefeld aktiv bleibt-->
+<input type="submit" value="bestätigen" />
+</form>
+
+<form method= "get" action="/"> 
+  <button name="alphabetically">a-z</button>
+  <button name="newest">latest</button>
+</form>
+
+<ul>
+  <% tasks.each do |task| %>
+    <li>
+    	<form action="/tasks/delete" METHOD= "POST">
+    	  <button>delete</button>
+    	  <%= task.name %>
+    	  <input type='hidden' value='<%=task.id%>' name="task_id">
+    	</form>
+    </li>
+  <% end %>
+</ul>
+
+
+<p>
+<strong>
+Requirements </strong>
+
+ <p> - Frequency </p>
+ <p> - Duration </p>
+ <p> - Reminder time </p>
+ <p> - Description </p>
+ <p> - Priority </p>
+ <p> - Context (like Context "Work", Context "Home", ...) </p>
+ <p> - Attachments </p>
+ <p> - Markdown (http://daringfireball.net/projects/markdown/syntax) </p>
+</p>
+<p>
+<strong>
+Priorisation </strong>
+
+ <p> - Create a task (with title) A task without a title is useless. </p>
+ <p> - Create a user </p>
+ <p> - A user needs a name and a password. Optionally also an email address. </p>
+ <p> - Delete a task, user can mark task as done, edit a task </p>
+ <p> - Due date </p>
+ <p> - A user can see a task overview </p>
+
+</p>
+
+<a href="/impressum">Hier zum Impressum</a>
+<a href="/users/new">Register</a>
+
+
+
+
+
