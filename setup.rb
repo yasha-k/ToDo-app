@@ -7,7 +7,7 @@ require 'dotenv'
 Dotenv.load
 
 
-CONNECTION_URI = ENV["DATABASE"]
+CONNECTION_URI = ENV["DATABASE_URL"]
 
 database = Sequel.connect(CONNECTION_URI)
 
