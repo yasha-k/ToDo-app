@@ -3,7 +3,11 @@ require 'sqlite3'
 require 'lotus/model'
 require 'lotus/model/adapters/sql_adapter'
 
-CONNECTION_URI = "sqlite:///#{ __dir__ }/test.db"
+require 'dotenv'
+Dotenv.load
+
+
+CONNECTION_URI = ENV["DATABASE"]
 
 database = Sequel.connect(CONNECTION_URI)
 
