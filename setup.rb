@@ -1,5 +1,5 @@
 require 'bundler/setup'
-require 'sqlite3'
+#require 'sqlite3'
 require 'lotus/model'
 require 'lotus/model/adapters/sql_adapter'
 
