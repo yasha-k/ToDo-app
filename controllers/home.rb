@@ -1,12 +1,17 @@
+require 'lotus/action/session'
+
 module ToDoApp
   module Controllers
     module Home
-      include ToDoApp::Controller
+      include ToDoApp::Controller# ToDoApp le nom du module, toujours faire atention
 
       action 'Index' do
+         include Lotus::Action::Session # ajoute le 27.01.2015
         expose :tasks
+        expose :user
 
         def call(params)
+          puts "SESSION: #{session[:user]}"
           if params[:newest]
             @tasks = ToDoApp::Repositories::TaskRepository.latest_tasks
           elsif params[:alphabetically]
@@ -14,6 +19,7 @@ module ToDoApp
           else
             @tasks = ToDoApp::Repositories::TaskRepository.all
           end
+          @user = ToDoApp::Repositories::UserRepository.by_id(session[:user])
         end
       end
 
@@ -21,7 +27,7 @@ module ToDoApp
 
         def call(params)
 
-          new_task = ToDoApp::Models::Task.new({name: params[:task]})
+          new_task = ToDoApp::Models::Task.new({name: params[:task,user_id: session[:user]})
           if !new_task.name.nil? && !new_task.name.strip.empty?
             ToDoApp::Repositories::TaskRepository.create(new_task)
           end

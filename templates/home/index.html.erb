@@ -1,3 +1,28 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <ul class="nav navbar-nav">
+        <li><a href="/impressum">Impressum</a></li>
+        <li><a href="/users/new">Register</a></li>
+        <li><a href="users/signin">Sign-in</a></li>
+          
+        </ul>
+      </div>
+  </div>
+</nav>
+<%if user %>
+  <p><%= user.email %></p>
+<% end %>  
 
 <h1>ToDoApp</h1>
 <p>
@@ -27,35 +52,20 @@ Hier ist die erste Seite von der ToDoApp!
 </ul>
 
 
-<p>
-<strong>
-Requirements </strong>
 
- <p> - Frequency </p>
- <p> - Duration </p>
- <p> - Reminder time </p>
- <p> - Description </p>
- <p> - Priority </p>
- <p> - Context (like Context "Work", Context "Home", ...) </p>
- <p> - Attachments </p>
- <p> - Markdown (http://daringfireball.net/projects/markdown/syntax) </p>
-</p>
-<p>
-<strong>
-Priorisation </strong>
 
- <p> - Create a task (with title) A task without a title is useless. </p>
- <p> - Create a user </p>
- <p> - A user needs a name and a password. Optionally also an email address. </p>
- <p> - Delete a task, user can mark task as done, edit a task </p>
- <p> - Due date </p>
- <p> - A user can see a task overview </p>
-
-</p>
 
 <a href="/impressum">Hier zum Impressum</a>
+
+<%if user%>
+<p><%= user.email%></p>
+<%end%>
+<%if user.nil?%>
 <a href="/users/new">Register</a>
-<a href="/users/signin">Sign-in</a>
+<a href="/users/signin">Sign-in</a> 
+
+<%end%>
+
 
 
 
