@@ -27,7 +27,7 @@ module ToDoApp
 
         def call(params)
 
-          new_task = ToDoApp::Models::Task.new({name: params[:task,user_id: session[:user]})
+          new_task = ToDoApp::Models::Task.new({name: params[:task],user_id: session[:user]})
           if !new_task.name.nil? && !new_task.name.strip.empty?
             ToDoApp::Repositories::TaskRepository.create(new_task)
           end
