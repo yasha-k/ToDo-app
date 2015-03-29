@@ -51,6 +51,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
+  lotus-controller (= 0.2.0)
   lotus-model!
   lotusrb!
   pg
